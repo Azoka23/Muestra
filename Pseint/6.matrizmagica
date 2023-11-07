@@ -1,0 +1,98 @@
+
+Algoritmo sin_titulo
+	//7Una matriz mágica es una matriz cuadrada (tiene igual número de filas 
+	//que de columnas) que tiene como propiedad especial que la suma de las filas, 
+	//las columnas y las diagonales es igual. Por ejemplo:
+	//En la matriz de ejemplo las sumas son siempre 15. Considere el problema de 
+	//construir un algoritmo que compruebe si una matriz de datos enteros es mágica o 
+	//no, y en caso de que sea mágica escribir lasuma. Además, el programa deberá comprobar 
+	//que los números
+	//introducidos son correctos, es decir, están entre el 1 y el 9. El usuario 
+	//ingresa el tamaño de la matriz que no debe superar orden igual a 10.
+	definir mat,i,j,n,x como entero
+	
+	
+	escribir "****** Matriz Magica ******"
+	escribir " Ingresa el numero para las filas y columnas , su orden no puede  ser mayor a 10"
+	escribir " No te olvides que la matriz es cuadrada"
+	leer n
+	
+	escribir " Ingresa  los numeros para llenar la matriz"
+	x=n
+	i=n
+	j=n
+	dimension mat[i,j] 
+	
+	para i=0 hasta i-1 Hacer
+		para j=0 hasta j-1 Hacer
+			leer mat[i,j]
+			
+		FinPara
+		escribir " "
+	FinPara
+	para i=0 hasta i-1 Hacer
+		para j=0 hasta j-1 Hacer
+			
+			escribir " [ " , mat[i,j] , " ] " sin saltar
+			
+		FinPara
+		escribir " "
+	FinPara
+	
+	
+	sumcolfil(mat,i,j,n)
+	
+	
+FinAlgoritmo
+
+subproceso sumcolfil (mat,i,j,n por referencia)
+	definir sumacol,sumafil,suma,sum ,x como entero
+	x=n
+	para i=0  hasta i-1 hacer
+		sumafil=0
+		para j=0 hasta j-1 Hacer
+			sumafil=sumafil+mat[i,j]
+		FinPara
+		escribir "La suma de la fila " , i, " es " , sumafil
+		escribir " "
+	Finpara
+	
+	para i=0  hasta i-1 hacer
+		sumacol=0
+		para j=0 hasta j-1 Hacer
+			sumacol=sumacol+mat[j,i]
+		FinPara
+		escribir "La suma de la columna " , i, " es " , sumacol
+		escribir " "
+	Finpara
+	
+	para i=0 hasta i-1 hacer
+		suma=0
+		
+		para j=0 hasta j-1 Hacer
+			i=j
+			suma=suma +mat[i,j]
+		FinPara
+		escribir "La suma de la diagonal 1 es " suma
+		escribir " "
+	FinPara
+	sum=0
+	j=x-1
+	para i=0 hasta x-1  hacer
+		
+		sum=sum+mat[i,j]
+		j=j-1
+		
+	FinPara
+	
+	escribir "La suma de la diagonal 2 es " sum
+	escribir " "
+	si sumafil=sumacol y sumafil=sum Entonces
+		escribir "La matriz es magica !!"
+		escribir "El numero magico es " , sumafil
+	sino
+		escribir "Oooops!! Lo sentimos, tu matriz no es magica"
+		escribir "Intentalo de nuevo"
+	FinSi
+FinSubProceso
+
